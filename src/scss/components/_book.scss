@@ -1,0 +1,56 @@
+@import "../vars";
+
+.book {
+  flex: 1 1 auto;
+
+  &__list {
+    padding: 40px 0;
+  }
+
+  &__left {
+    text-align: left;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid $secondary-color;
+    padding: 20px;
+    background: $light;
+
+    & + & {
+      margin-top: 30px;
+    }
+  }
+
+  &__name {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  &__author {
+    font-size: 20px;
+  }
+
+  &__changeIcon,
+  &__deleteIcon,
+  &__favIcon {
+    cursor: pointer;
+    color: $gray;
+  }
+
+  &__deleteIcon {
+    color: rgb(243, 67, 67);
+  }
+
+  &__changeIcon {
+    color: $accent-color;
+  }
+
+  &__favIcon {
+    &_active {
+      color: $secondary-color;
+    }
+  }
+}

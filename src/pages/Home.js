@@ -1,4 +1,5 @@
 import React from "react";
+import BookList from "../components/BookList";
 import Filters from "../components/Filters";
 
 const Home = () => {
@@ -7,7 +8,7 @@ const Home = () => {
       <div className="container">
         <div className="home__wrapper">
           <Filters />
-          <div className="bookList"></div>
+          <BookList />
         </div>
       </div>
     </div>
