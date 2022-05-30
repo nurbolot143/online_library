@@ -4,7 +4,7 @@
   background: $accent-color;
 
   &__wrapper {
-    height: 65px;
+    height: 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,11 +27,36 @@
   }
 
   &__item {
-    font-size: 20px;
-    font-weight: 600;
-
     & + & {
       margin-left: 20px;
+    }
+
+    a {
+      position: relative;
+      padding: 15px 0;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      line-height: 16px;
+      color: $light;
+
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -4px;
+        right: 0;
+        width: 0;
+        height: 3px;
+        background: $secondary-color;
+        transition: all 0.4s;
+      }
+
+      &:hover::after {
+        width: 100%;
+        right: auto;
+        left: 0;
+      }
     }
   }
 }

@@ -14,9 +14,10 @@ const Header = () => {
             <li className="nav__item">
               <NavLink
                 to="/"
-                style={({ isActive }) =>
-                  isActive ? { color: "#fcc349" } : undefined
-                }
+                style={({ isActive }) => ({
+                  borderBottom: isActive ? "4px solid #f3c26b" : "none",
+                  color: isActive ? "#fcc349" : undefined,
+                })}
               >
                 Home
               </NavLink>
@@ -24,9 +25,10 @@ const Header = () => {
             <li className="nav__item">
               <NavLink
                 to="/wishList"
-                style={({ isActive }) =>
-                  isActive ? { color: "#fcc349" } : undefined
-                }
+                style={({ isActive }) => ({
+                  borderBottom: isActive ? "4px solid #f3c26b" : "none",
+                  color: isActive ? "#fcc349" : undefined,
+                })}
               >
                 Wish List
               </NavLink>
