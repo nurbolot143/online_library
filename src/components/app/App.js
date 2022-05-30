@@ -1,9 +1,8 @@
 import React from "react";
-import { Counter } from "./features/counter/Counter";
-import "./App.css";
+import { Counter } from "../../features/counter/Counter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Header from "./components/Header";
+import Home from "../../pages/Home";
+import Header from "../header/Header";
 
 function App() {
   return (

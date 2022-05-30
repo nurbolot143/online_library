@@ -1,6 +1,6 @@
 import React from "react";
-import BookList from "../components/BookList";
-import Filters from "../components/Filters";
+import BooksList from "../components/booksList/BooksList";
+import Filters from "../components/filters/Filters";
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
       <div className="container">
         <div className="home__wrapper">
           <Filters />
-          <BookList />
+          <BooksList />
         </div>
       </div>
     </div>

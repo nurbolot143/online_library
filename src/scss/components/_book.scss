@@ -40,11 +40,8 @@
     color: $gray;
   }
 
+  &__changeIcon,
   &__deleteIcon {
-    color: rgb(243, 67, 67);
-  }
-
-  &__changeIcon {
     color: $accent-color;
   }
 
