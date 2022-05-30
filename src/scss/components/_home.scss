@@ -1,0 +1,16 @@
+@import "../vars";
+
+.home {
+  // background: $secondary-color;
+  min-height: 100vh;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.bookList {
+  flex: 1 1 auto;
+  background: $light;
+  min-height: 100vh;
+}

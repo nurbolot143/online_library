@@ -1,0 +1,62 @@
+@import "../vars";
+
+.filters {
+  border-top: 1px solid $secondary-color;
+  margin: 0 30px 0 0;
+  background: $accent-color;
+  // box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
+  flex: 0 0 350px;
+
+  &__author,
+  &__name {
+    padding: 10px;
+
+    input {
+      width: 100%;
+      padding: 10px 5px;
+      font-size: 20px;
+    }
+  }
+}
+
+.categories {
+  &__list {
+    display: flex;
+    margin: 10px;
+    border: 1px solid $secondary-color;
+  }
+
+  &__item {
+    & + & {
+      border-left: 1px solid $secondary-color;
+    }
+  }
+
+  &__btn {
+    background: transparent;
+    padding: 5px 25px;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 600;
+    color: $light;
+
+    &_active {
+      background: $secondary-color;
+    }
+  }
+}
+
+.booksInfo {
+  margin: 40px 10px;
+
+  &__item {
+    text-align: left;
+    font-size: 25px;
+    margin: 10px 0;
+    color: $light;
+
+    span {
+      color: $secondary-color;
+    }
+  }
+}
