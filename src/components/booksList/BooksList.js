@@ -4,6 +4,7 @@ import { fetchBooks } from "./booksSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import BookItem from "../bookItem/BookItem";
+import Message from "../message/Message";
 
 const BooksList = () => {
   const dispatch = useDispatch();
@@ -48,10 +49,12 @@ const BooksList = () => {
     });
   };
 
-  const elements = renderBooksList(books);
+  const elements = books.length > 0 ? renderBooksList(books) : null;
+  const elementsMissing = books.length > 0 ? null : <Message />;
 
   return (
     <div className="book">
+      {elementsMissing}
       <ul className="book__list">{elements}</ul>
     </div>
   );
