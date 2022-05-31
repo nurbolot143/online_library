@@ -1,0 +1,16 @@
+@import "../vars";
+
+.booksInfo {
+  margin: 40px 10px;
+
+  &__item {
+    text-align: left;
+    font-size: 25px;
+    margin: 10px 0;
+    color: $light;
+
+    span {
+      color: $secondary-color;
+    }
+  }
+}

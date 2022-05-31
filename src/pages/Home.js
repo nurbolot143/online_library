@@ -1,13 +1,13 @@
 import React from "react";
 import BooksList from "../components/booksList/BooksList";
-import Filters from "../components/filters/Filters";
+import SettingsPanel from "../components/settingsPanel/SettingsPanal";
 
 const Home = () => {
   return (
     <div className="home">
       <div className="container">
         <div className="home__wrapper">
-          <Filters />
+          <SettingsPanel />
           <BooksList />
         </div>
       </div>

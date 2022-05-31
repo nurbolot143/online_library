@@ -3,7 +3,7 @@ import React from "react";
 const Categories = () => {
   return (
     <div className="categories">
-      <h3 className="title">catergories</h3>
+      <h3 className="title">категории</h3>
       <ul className="categories__list">
         <li className="categories__item">
           <button className="categories__btn categories__btn_active">

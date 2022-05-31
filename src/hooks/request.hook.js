@@ -1,12 +1,12 @@
 export const useRequest = () => {
-  const request = async (method = "getItem", key, body) => {
+  const request = async (method = "GET", key, body) => {
     try {
       return await new Promise((resolve) => {
         switch (method) {
           case "GET":
-            return resolve(localStorage.getItem(key));
+            return resolve(JSON.parse(localStorage.getItem(key)));
           case "SET":
-            return resolve(localStorage.getItem(key, body));
+            return resolve(localStorage.setItem(key, JSON.stringify(body)));
         }
       });
     } catch (error) {

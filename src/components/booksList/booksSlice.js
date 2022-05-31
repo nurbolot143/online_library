@@ -2,24 +2,22 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { useRequest } from "../../hooks/request.hook";
 
-const { request } = useRequest();
-
 const initialState = {
-  books: [
-    { id: 1, name: "Argoritms", author: "Nurbolot", isFavorite: false },
-    { id: 2, name: "Learn React", author: "Nurbolot", isFavorite: false },
-  ],
-  booksLoadingStatus: "idle",
+  books: [],
 };
 
 export const fetchBooks = createAsyncThunk("books/fetchBooks", () => {
-  return request("books");
+  const { request } = useRequest();
+  return request("GET", "books");
 });
 
 const booksSlice = createSlice({
   name: "books",
   initialState,
   reducers: {
+    bookCreated: (state, action) => {
+      state.books.push(action.payload);
+    },
     bookDeleted: (state, action) => {
       state.books = state.books.filter((item) => item.id !== action.payload);
     },
@@ -32,17 +30,9 @@ const booksSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchBooks.pending, (state) => {
-        state.booksLoadingStatus = "loading";
-      })
-      .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.booksLoadingStatus = "idle";
-        state.booksList = action.payload;
-      })
-      .addCase(fetchBooks.rejected, (state) => {
-        state.booksLoadingStatus = "error";
-      });
+    builder.addCase(fetchBooks.fulfilled, (state, action) => {
+      state.books = action.payload;
+    });
   },
 });
 
@@ -50,4 +40,5 @@ const { actions, reducer } = booksSlice;
 
 export default reducer;
 
-export const { booksFetched, bookDeleted, bookFavoriteChanged } = actions;
+export const { booksFetched, bookDeleted, bookFavoriteChanged, bookCreated } =
+  actions;

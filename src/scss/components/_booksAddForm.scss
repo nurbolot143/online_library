@@ -1,0 +1,48 @@
+@import "../vars";
+
+.booksAddForm {
+  margin: 40px 0 0 0;
+  padding: 20px;
+  background: $secondary-color;
+  h3 {
+    margin: 0 0 20px 0;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input,
+  select,
+  label {
+    margin: 10px 0;
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  label {
+    background: $light;
+  }
+
+  &__label {
+    font-size: 20px;
+  }
+
+  button {
+    align-self: flex-end;
+    display: inline-block;
+    margin: 15px 0;
+    padding: 10px 25px;
+    font-size: 20px;
+    background: $accent-color;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $light;
+  }
+}
