@@ -5,7 +5,7 @@ const initialState = {
   firstLetter: "",
   author: "",
   search: "",
-  searchType: "",
+  searchType: "title",
 };
 
 const filtersSlice = createSlice({
@@ -24,6 +24,12 @@ const filtersSlice = createSlice({
     changedAmount: (state, action) => {
       state.activeCategoryAmount = action.payload;
     },
+    changedSearchType: (state, action) => {
+      state.searchType = action.payload;
+    },
+    cahngedSearch: (state, action) => {
+      state.search = action.payload;
+    },
   },
 });
 
@@ -36,4 +42,6 @@ export const {
   searchByAuthor,
   searchByFristLetter,
   changedAmount,
+  changedSearchType,
+  cahngedSearch,
 } = actions;

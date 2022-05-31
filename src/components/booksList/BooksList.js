@@ -1,23 +1,33 @@
 import React, { useEffect } from "react";
 
-import { changedBooksLength, fetchBooks } from "./booksSlice";
+import { fetchBooks } from "./booksSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import BookItem from "../bookItem/BookItem";
-import { changedAmount } from "../filters/filtersSlice";
 
 const BooksList = () => {
   const dispatch = useDispatch();
 
+  const searchBooks = (items, type, term) => {
+    if (term.length === 0) {
+      return items;
+    } else if (type === "title") {
+      return items.filter((item) => item.title.indexOf(term) > -1);
+    }
+    return items.filter((item) => item.author.indexOf(term) > -1);
+  };
+
   const filteredBooksSelector = createSelector(
     (state) => state.books.books,
-    (state) => state.filters.category,
+    (state) => state.filters,
 
     (books, filters) => {
-      if (filters === "all") {
-        return books;
+      if (filters.category === "all") {
+        return searchBooks(books, filters.searchType, filters.search);
       } else {
-        return books.filter((item) => item.category === filters);
+        return searchBooks(books, filters.searchType, filters.search).filter(
+          (item) => item.category === filters.category
+        );
       }
     }
   );
