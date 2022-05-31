@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,6 +11,12 @@ const BooksAddForm = () => {
   const [bookAuthor, setBookAuthor] = useState("");
   const [bookCategory, setBookCategory] = useState("");
   const [bookImg, setBookImg] = useState("");
+
+  const imgInputRef = useRef();
+
+  const reset = () => {
+    imgInputRef.current.value = null;
+  };
 
   const { request } = useRequest();
 
@@ -60,52 +66,59 @@ const BooksAddForm = () => {
     setBookAuthor("");
     setBookCategory("");
     setBookImg("");
+
+    reset();
   };
 
   return (
     <div className="booksAddForm">
-      <h3 className="title">добавить новую книгу</h3>
+      <div className="booksAddForm__wrapper">
+        <h3 className="title">добавить новую книгу</h3>
 
-      <form onSubmit={onSubmitHandler}>
-        <input
-          required
-          type="text"
-          name="title"
-          value={bookTitle}
-          placeholder="Название книги"
-          onChange={(e) => setBookTitle(e.target.value)}
-        />
-        <input
-          required
-          type="text"
-          name="author"
-          value={bookAuthor}
-          placeholder="Автор книги"
-          onChange={(e) => setBookAuthor(e.target.value)}
-        />
-        <select
-          required
-          name="catetory"
-          value={bookCategory}
-          id="category"
-          onChange={(e) => setBookCategory(e.target.value)}
-        >
-          <option value="">Выбрать категорию</option>
-          <option value="science">наука</option>
-          <option value="literature">литература</option>
-        </select>
-        <label htmlFor="image">Выбрать картину</label>
-        <input
-          required
-          type="file"
-          id="image"
-          name="img"
-          files={bookImg}
-          accept=".jpeg"
-          onChange={imageUpload}
-        />
-        <button type="submit"> добавить</button>
-      </form>
+        <form onSubmit={onSubmitHandler}>
+          <input
+            required
+            type="text"
+            name="title"
+            value={bookTitle}
+            placeholder="Введите название"
+            onChange={(e) => setBookTitle(e.target.value)}
+          />
+          <input
+            required
+            type="text"
+            name="author"
+            value={bookAuthor}
+            placeholder="Введите имя автора"
+            onChange={(e) => setBookAuthor(e.target.value)}
+          />
+          <select
+            required
+            name="catetory"
+            value={bookCategory}
+            id="category"
+            onChange={(e) => setBookCategory(e.target.value)}
+          >
+            <option value="">Выберите категорию</option>
+            <option value="science">наука</option>
+            <option value="literature">литература</option>
+          </select>
+          <div className="booksAddForm__imgInput">
+            <label htmlFor="image">Выберите изображение</label>
+            <input
+              ref={imgInputRef}
+              required
+              type="file"
+              id="image"
+              name="img"
+              files={bookImg}
+              accept=".jpeg"
+              onChange={imageUpload}
+            />
+          </div>
+          <button type="submit"> добавить</button>
+        </form>
+      </div>
     </div>
   );
 };

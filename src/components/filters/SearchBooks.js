@@ -20,13 +20,17 @@ const SearchBooks = () => {
 
   return (
     <div className="searchBooks">
-      <h3 className="title">поиск</h3>
       <div className="searchBooks__wrapper">
         <select name="searchType" onChange={onTypeChange}>
           <option value="title">названиe</option>
           <option value="author">автор</option>
         </select>
-        <input type="text" value={searchValue} onChange={onValueChange} />
+        <input
+          type="text"
+          value={searchValue}
+          placeholder="Поиск"
+          onChange={onValueChange}
+        />
       </div>
     </div>
   );

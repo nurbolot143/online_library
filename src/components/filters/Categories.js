@@ -5,7 +5,7 @@ import { changedCategory } from "./filtersSlice";
 
 const categoryBtns = [
   { id: 0, name: "all", label: "Все" },
-  { id: 1, name: "science", label: "Нука" },
+  { id: 1, name: "science", label: "Наука" },
   { id: 2, name: "literature", label: "Литература" },
 ];
 

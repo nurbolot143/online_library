@@ -1,0 +1,9 @@
+@import "../vars";
+
+.filtersPanel {
+  border-top: 2px solid $light;
+
+  display: flex;
+  background: $accent-color;
+  justify-content: space-between;
+}

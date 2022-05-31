@@ -24,13 +24,13 @@ const BookInfo = () => {
   return (
     <div className="booksInfo">
       <div className="booksInfo__item">
-        Oбщее количество книг: <span>{filters[0]}</span>
+        Oбщее количество книг: <span> {filters[0]}</span>
       </div>
       <div className="booksInfo__item">
         {filters.length === 1 ? null : (
           <>
             Количество книг в данной категории:
-            <span>{filters[1]}</span>
+            <span> {filters[1]}</span>
           </>
         )}
       </div>

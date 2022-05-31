@@ -1,0 +1,31 @@
+@import "../vars";
+
+.categories {
+  display: flex;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    margin: 10px;
+  }
+
+  &__item {
+    border: 1px solid $secondary-color;
+    & + & {
+      border-left: none;
+    }
+  }
+
+  &__btn {
+    background: transparent;
+    padding: 5px 25px;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 600;
+    color: $light;
+
+    &_active {
+      background: $secondary-color;
+    }
+  }
+}

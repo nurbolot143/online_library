@@ -3,12 +3,8 @@
 @import "./components/filters";
 @import "./components/home";
 @import "./components/book";
-@import "./components/settingsPanel";
+@import "./components/filtersPanel";
 @import "./components/booksInfo";
 @import "./components/booksAddForm";
 @import "./components/wishList";
-
-.testImg {
-  width: 500px;
-  height: 500px;
-}
+@import "./components/categories";

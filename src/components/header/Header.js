@@ -1,6 +1,12 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
+const navBtns = [
+  { id: 0, label: "Home", to: "/" },
+  { id: 1, label: "Wish List", to: "/wishList" },
+  { id: 2, label: "Admin Panel", to: "/adminPanel" },
+];
+
 const Header = () => {
   return (
     <header className="header">
@@ -11,28 +17,21 @@ const Header = () => {
           </div>
 
           <ul className="nav__list">
-            <li className="nav__item">
-              <NavLink
-                to="/"
-                style={({ isActive }) => ({
-                  borderBottom: isActive ? "4px solid #f3c26b" : "none",
-                  color: isActive ? "#fcc349" : undefined,
-                })}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li className="nav__item">
-              <NavLink
-                to="/wishList"
-                style={({ isActive }) => ({
-                  borderBottom: isActive ? "4px solid #f3c26b" : "none",
-                  color: isActive ? "#fcc349" : undefined,
-                })}
-              >
-                Wish List
-              </NavLink>
-            </li>
+            {navBtns.map(({ id, label, to }) => {
+              return (
+                <li key={id} className="nav__item">
+                  <NavLink
+                    to={to}
+                    style={({ isActive }) => ({
+                      borderBottom: isActive ? "4px solid #f3c26b" : "none",
+                      color: isActive ? "#fcc349" : undefined,
+                    })}
+                  >
+                    {label}
+                  </NavLink>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
