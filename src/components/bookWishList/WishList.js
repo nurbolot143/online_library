@@ -16,8 +16,6 @@ const WishList = () => {
 
   const wishList = useSelector(wishListSelector);
 
-  console.log(wishList);
-
   useEffect(() => {
     dispatch(fetchWishList());
   }, []);

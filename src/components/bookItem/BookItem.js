@@ -19,6 +19,7 @@ const BookItem = ({ item, change }) => {
   );
 
   const dispatch = useDispatch();
+
   const books = useSelector(filteredBooksSelector);
 
   const { request } = useRequest();
@@ -32,8 +33,6 @@ const BookItem = ({ item, change }) => {
       .then(dispatch(bookDeleted(id)))
       .catch((e) => console.log(e));
   };
-
-  console.log(books);
 
   const onFavoriteChange = (id) => {
     request(

@@ -40,5 +40,10 @@ const { actions, reducer } = booksSlice;
 
 export default reducer;
 
-export const { booksFetched, bookDeleted, bookFavoriteChanged, bookCreated } =
-  actions;
+export const {
+  booksFetched,
+  bookDeleted,
+  bookFavoriteChanged,
+  bookCreated,
+  changedBooksLength,
+} = actions;

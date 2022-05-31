@@ -1,14 +1,25 @@
 @import "../vars";
 
 .searchBooks {
-  &__author,
-  &__name {
-    padding: 10px;
+  &__wrapper {
+    position: relative;
+    margin: 10px;
 
     input {
-      width: 100%;
-      padding: 10px 5px;
       font-size: 20px;
+      width: 100%;
+      padding: 10px 5px 10px 85px;
+    }
+
+    select {
+      font-size: 20px;
+      width: 80px;
+      top: 0;
+      left: 0;
+      height: 100%;
+      position: absolute;
+      background: $secondary-color;
+      color: $light;
     }
   }
 }
@@ -17,12 +28,12 @@
   &__list {
     display: flex;
     margin: 10px;
-    border: 1px solid $secondary-color;
   }
 
   &__item {
+    border: 1px solid $secondary-color;
     & + & {
-      border-left: 1px solid $secondary-color;
+      border-left: none;
     }
   }
 

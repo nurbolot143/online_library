@@ -4,12 +4,12 @@ const SearchBooks = () => {
   return (
     <div className="searchBooks">
       <h3 className="title">поиск</h3>
-      <div className="searchBooks__name">
-        <input type="text" placeholder="Название книги" />
-      </div>
-
-      <div className="searchBooks__author">
-        <input type="text" placeholder="Автор книги" />
+      <div className="searchBooks__wrapper">
+        <select name="searchType" id="">
+          <option value="title">поиск по названию</option>
+          <option value="author">поиск по автору</option>
+        </select>
+        <input type="text" />
       </div>
     </div>
   );

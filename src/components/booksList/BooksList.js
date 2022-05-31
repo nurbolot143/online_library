@@ -1,19 +1,26 @@
 import React, { useEffect } from "react";
 
-import { fetchBooks } from "./booksSlice";
+import { changedBooksLength, fetchBooks } from "./booksSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import BookItem from "../bookItem/BookItem";
+import { changedAmount } from "../filters/filtersSlice";
 
 const BooksList = () => {
+  const dispatch = useDispatch();
+
   const filteredBooksSelector = createSelector(
     (state) => state.books.books,
-    (state) => state.wishList.wishList,
+    (state) => state.filters.category,
 
-    (books) => books
+    (books, filters) => {
+      if (filters === "all") {
+        return books;
+      } else {
+        return books.filter((item) => item.category === filters);
+      }
+    }
   );
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const localStorageBooks = localStorage.getItem("books") || [];
