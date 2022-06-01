@@ -28,6 +28,9 @@ const booksSlice = createSlice({
           : item
       );
     },
+    bookChanged: (state, action) => {
+      state.books = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBooks.fulfilled, (state, action) => {
@@ -46,4 +49,5 @@ export const {
   bookFavoriteChanged,
   bookCreated,
   changedBooksLength,
+  bookChanged,
 } = actions;

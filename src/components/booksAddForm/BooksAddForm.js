@@ -94,7 +94,7 @@ const BooksAddForm = () => {
           />
           <select
             required
-            name="catetory"
+            name="category"
             value={bookCategory}
             id="category"
             onChange={(e) => setBookCategory(e.target.value)}

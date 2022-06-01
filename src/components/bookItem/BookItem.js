@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import StarIcon from "@mui/icons-material/Star";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import { useRequest } from "../../hooks/request.hook";
 import { fetchWishList } from "../bookWishList/wishListSlice";
+import FormModal from "../formModal/FormModal";
 
 const BookItem = ({ item, change }) => {
   const filteredBooksSelector = createSelector(
@@ -49,39 +50,57 @@ const BookItem = ({ item, change }) => {
 
   const image = (new Image().src = item.img || " ");
 
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <li className="book__item">
-      <div className="book__left">
-        <div className="book__img">
-          <img src={image} alt={item.title} />
+    <>
+      <li className="book__item">
+        <div className="book__left">
+          <div className="book__img">
+            <img src={image} alt={item.title} />
+          </div>
+          <div className="book__body">
+            <div className="book__name">{item.title}</div>
+            <div className="book__author">{item.author}</div>
+          </div>
         </div>
-        <div className="book__body">
-          <div className="book__name">{item.title}</div>
-          <div className="book__author">{item.author}</div>
+        <div className="book__right">
+          {change ? (
+            <>
+              <BorderColorIcon
+                className="book__changeIcon"
+                fontSize="large"
+                onClick={handleClickOpen}
+              />
+              <DeleteIcon
+                onClick={() => onDelete(item.id)}
+                className="book__deleteIcon"
+                fontSize="large"
+              />
+            </>
+          ) : null}
+          <StarIcon
+            onClick={() => onFavoriteChange(item.id)}
+            className={
+              item.isFavorite
+                ? "book__favIcon book__favIcon_active"
+                : "book__favIcon"
+            }
+            fontSize="large"
+          />
         </div>
-      </div>
-      <div className="book__right">
-        {change ? (
-          <>
-            <BorderColorIcon className="book__changeIcon" fontSize="large" />
-            <DeleteIcon
-              onClick={() => onDelete(item.id)}
-              className="book__deleteIcon"
-              fontSize="large"
-            />
-          </>
-        ) : null}
-        <StarIcon
-          onClick={() => onFavoriteChange(item.id)}
-          className={
-            item.isFavorite
-              ? "book__favIcon book__favIcon_active"
-              : "book__favIcon"
-          }
-          fontSize="large"
-        />
-      </div>
-    </li>
+      </li>
+
+      <FormModal open={open} handleClose={handleClose} data={item} />
+    </>
   );
 };
 

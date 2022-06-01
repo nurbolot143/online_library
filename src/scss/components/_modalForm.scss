@@ -1,0 +1,36 @@
+@import "../vars";
+
+.modalForm {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__InputWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  input,
+  select,
+  &__label {
+    font-size: 20px;
+    border: 1px solid $primary;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  label {
+    font-size: 20px;
+  }
+
+  // input[type="file"] {
+  //   visibility: hidden;
+  // }
+
+  &__label {
+    padding: 8px 18px;
+    font-weight: 500;
+  }
+}

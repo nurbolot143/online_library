@@ -23,12 +23,19 @@ const BooksList = () => {
     (state) => state.filters,
 
     (books, filters) => {
+      const searchedBooks = searchBooks(
+        books,
+        filters.searchType,
+        filters.search
+      );
+
+      const sortedBooks =
+        searchedBooks.length === 0 ? searchedBooks : searchedBooks;
+
       if (filters.category === "all") {
-        return searchBooks(books, filters.searchType, filters.search);
+        return sortedBooks;
       } else {
-        return searchBooks(books, filters.searchType, filters.search).filter(
-          (item) => item.category === filters.category
-        );
+        return sortedBooks.filter((item) => item.category === filters.category);
       }
     }
   );
