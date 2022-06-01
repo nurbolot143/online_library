@@ -10,7 +10,6 @@ const Home = () => {
         <div className="home__wrapper">
           <FiltersPanel />
           <BookInfo />
-
           <BooksList />
         </div>
       </div>

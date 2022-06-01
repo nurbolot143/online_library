@@ -14,7 +14,6 @@ const FormModal = ({ open, handleClose, data }) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [category, setCategory] = useState("");
-  // const [img, setImg] = useState("");
 
   const dispatch = useDispatch();
 
@@ -27,26 +26,11 @@ const FormModal = ({ open, handleClose, data }) => {
 
   const { request } = useRequest();
 
-  // var reader = new FileReader();
-  // reader.readAsDataURL(image.files[0]);
-
-  // reader.onload = function () {
-  //   console.log(reader.result);
-  // };
-
   useEffect(() => {
     setTitle(data.title);
     setAuthor(data.author);
     setCategory(data.category);
-    // setImg(btoa(image));
   }, [handleClose]);
-
-  // const imageUpload = (e) => {
-  //   const file = e.target.files[0];
-  //   getBase64(file).then((base64) => {
-  //     setImg(base64);
-  //   });
-  // };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -112,21 +96,6 @@ const FormModal = ({ open, handleClose, data }) => {
                 <option value="literature">литература</option>
               </select>
             </div>
-            {/* <div className="modalForm__InputWrapper">
-              <label htmlFor="img">Изображение</label>
-              <label className="modalForm__label" htmlFor="img">
-                Выберите изменение
-              </label>
-              <input
-                required
-                type="file"
-                id="image"
-                name="img"
-                value={img}
-                accept=".jpeg"
-                onChange={imageUpload}
-              />
-            </div> */}
           </div>
         </DialogContent>
         <DialogActions>
