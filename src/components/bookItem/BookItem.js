@@ -63,16 +63,16 @@ const BookItem = ({ item, change }) => {
   return (
     <>
       <li className="book__item">
-        <div className="book__left">
-          <div className="book__img">
-            <img src={image} alt={item.title} />
-          </div>
-          <div className="book__body">
-            <div className="book__name">{item.title}</div>
-            <div className="book__author">{item.author}</div>
+        <div className="book__img">
+          <img src={image} alt={item.title} />
+        </div>
+        <div className="book__body">
+          <div className="book__name">{item.title}</div>
+          <div className="book__author">
+            <span>Автор: </span> {item.author}
           </div>
         </div>
-        <div className="book__right">
+        <div className="book__bottom">
           {change ? (
             <>
               <BorderColorIcon

@@ -13,9 +13,13 @@ const BooksList = () => {
     if (term.length === 0) {
       return items;
     } else if (type === "title") {
-      return items.filter((item) => item.title.indexOf(term) > -1);
+      return items.filter(
+        (item) => item.title.toLowerCase().indexOf(term.toLowerCase()) > -1
+      );
     }
-    return items.filter((item) => item.author.indexOf(term) > -1);
+    return items.filter(
+      (item) => item.author.toLowerCase().indexOf(term.toLowerCase()) > -1
+    );
   };
 
   const filteredBooksSelector = createSelector(

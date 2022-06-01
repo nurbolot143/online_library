@@ -4,7 +4,11 @@
   padding: 40px 0;
 
   &__wrapper {
-    max-width: 715px;
-    margin: 0 auto;
+    padding: 30px 0;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3%;
   }
 }
